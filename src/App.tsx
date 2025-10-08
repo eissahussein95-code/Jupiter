@@ -5,7 +5,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Layout from "@/components/layout/Layout"; // Updated import path
+import Layout from "@/components/layout/Layout";
+import LoginPage from "./pages/LoginPage"; // Import LoginPage
+import RegisterPage from "./pages/RegisterPage"; // Import RegisterPage
+import JobsPage from "./pages/JobsPage"; // Import JobsPage
 
 const queryClient = new QueryClient();
 
@@ -15,14 +18,14 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Layout> {/* Wrap Routes with the Layout component */}
+        <Layout>
           <Routes>
             <Route path="/" element={<Index />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="/jobs" element={<div>Jobs Listing Page (Coming Soon!)</div>} />
+            <Route path="/jobs" element={<JobsPage />} /> {/* Use JobsPage component */}
             <Route path="/freelancers" element={<div>Freelancers Listing Page (Coming Soon!)</div>} />
-            <Route path="/login" element={<div>Login Page (Coming Soon!)</div>} />
-            <Route path="/register" element={<div>Register Page (Coming Soon!)</div>} />
+            <Route path="/login" element={<LoginPage />} /> {/* Use LoginPage component */}
+            <Route path="/register" element={<RegisterPage />} /> {/* Use RegisterPage component */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
