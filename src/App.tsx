@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom"; // Import Outlet
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Layout from "@/components/layout/Layout";
@@ -17,21 +17,24 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="/jobs" element={<JobsPage />} />
-          <Route path="/jobs/:id" element={<JobDetailsPage />} />
-          <Route path="/freelancers" element={<FreelancersPage />} />
-          <Route path="/freelancers/:id" element={<FreelancerDetailsPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/post-job" element={<PostJobPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        {/* Define a parent route for the Layout */}
+        <Route path="/" element={<Layout />}>
+          {/* The index route will be rendered by default when at "/" */}
+          <Route index element={<Index />} />
+          {/* All other routes that should use the Layout are nested here */}
+          <Route path="jobs" element={<JobsPage />} />
+          <Route path="jobs/:id" element={<JobDetailsPage />} />
+          <Route path="freelancers" element={<FreelancersPage />} />
+          <Route path="freelancers/:id" element={<FreelancerDetailsPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="dashboard" element={<DashboardPage />} />
+          <Route path="post-job" element={<PostJobPage />} />
+        </Route>
+        {/* The NotFound route is outside the Layout route if it doesn't use the layout */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </BrowserRouter>
   </QueryClientProvider>
 );

@@ -1,21 +1,21 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom'; // Import Outlet
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip"; // Import TooltipProvider
+import { TooltipProvider } from "@/components/ui/tooltip";
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
+// LayoutProps no longer needs 'children' directly as Outlet handles nested content
+interface LayoutProps {}
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow container py-8">
-        <TooltipProvider> {/* TooltipProvider now wraps the children */}
-          {children}
+        <TooltipProvider>
+          <Outlet /> {/* Render Outlet for nested routes */}
         </TooltipProvider>
       </main>
       <Footer />
