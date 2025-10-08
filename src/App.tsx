@@ -1,4 +1,4 @@
-import React from "react"; // Import React for React.Fragment
+import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,12 +14,13 @@ import JobDetailsPage from "./pages/JobDetailsPage";
 import FreelancersPage from "./pages/FreelancersPage";
 import FreelancerDetailsPage from "./pages/FreelancerDetailsPage";
 import DashboardPage from "./pages/DashboardPage";
+import PostJobPage from "./pages/PostJobPage"; // Import PostJobPage
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <React.Fragment> {/* This fragment acts as the single child for QueryClientProvider */}
+    <React.Fragment>
       <TooltipProvider>
         <BrowserRouter>
           <Layout>
@@ -33,12 +34,12 @@ const App = () => (
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/post-job" element={<PostJobPage />} /> {/* Route for posting a job */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
         </BrowserRouter>
       </TooltipProvider>
-      {/* Toasters are now siblings within the fragment */}
       <Toaster />
       <Sonner />
     </React.Fragment>

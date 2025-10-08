@@ -17,7 +17,10 @@ const Header = () => {
             <Link to="/freelancers">Find Freelancers</Link>
           </Button>
           <Button variant="ghost" asChild>
-            <Link to="/dashboard">Dashboard</Link> {/* Added Dashboard link */}
+            <Link to="/dashboard">Dashboard</Link>
+          </Button>
+          <Button variant="ghost" asChild> {/* Added Post a Job link */}
+            <Link to="/post-job">Post a Job</Link>
           </Button>
           <Button asChild>
             <Link to="/login">Login</Link>
