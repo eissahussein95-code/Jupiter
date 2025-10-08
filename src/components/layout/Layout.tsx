@@ -1,5 +1,5 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom'; // Import Outlet
+import React from 'react'; // Import React to use React.Fragment
+import { Outlet } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Toaster } from "@/components/ui/toaster";
@@ -15,7 +15,9 @@ const Layout: React.FC<LayoutProps> = () => {
       <Header />
       <main className="flex-grow container py-8">
         <TooltipProvider>
-          <Outlet /> {/* Render Outlet for nested routes */}
+          <React.Fragment> {/* Wrap Outlet in a Fragment */}
+            <Outlet />
+          </React.Fragment>
         </TooltipProvider>
       </main>
       <Footer />
