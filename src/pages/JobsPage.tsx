@@ -1,8 +1,8 @@
 import React from 'react';
-import JobCard from '../components/jobs/JobCard'; // Re-confirming relative import
+import JobCard from '../components/jobs/JobCard';
 
-// Dummy data for job listings
-const dummyJobs = [
+// Dummy data for job listings - now exported
+export const dummyJobs = [
   {
     id: '1',
     title: 'Senior React Developer',
@@ -35,7 +35,7 @@ const dummyJobs = [
     title: 'DevOps Engineer',
     company: 'Cloud Builders',
     location: 'Remote',
-    salary: '$120,000 - $150,000', // Fixed the string literal syntax here
+    salary: '$120,000 - $150,000',
     description: 'Seeking an experienced DevOps Engineer to manage our cloud infrastructure and CI/CD pipelines. You will implement and maintain automation tools, ensure system reliability, and work closely with development teams to streamline deployment processes.',
     skills: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'CI/CD', 'Terraform'],
   },

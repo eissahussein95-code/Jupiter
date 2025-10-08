@@ -6,9 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Layout from "@/components/layout/Layout";
-import LoginPage from "./pages/LoginPage"; // Import LoginPage
-import RegisterPage from "./pages/RegisterPage"; // Import RegisterPage
-import JobsPage from "./pages/JobsPage"; // Import JobsPage
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import JobsPage from "./pages/JobsPage";
+import JobDetailsPage from "./pages/JobDetailsPage"; // Import JobDetailsPage
 
 const queryClient = new QueryClient();
 
@@ -22,10 +23,11 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="/jobs" element={<JobsPage />} /> {/* Use JobsPage component */}
+            <Route path="/jobs" element={<JobsPage />} />
+            <Route path="/jobs/:id" element={<JobDetailsPage />} /> {/* New route for job details */}
             <Route path="/freelancers" element={<div>Freelancers Listing Page (Coming Soon!)</div>} />
-            <Route path="/login" element={<LoginPage />} /> {/* Use LoginPage component */}
-            <Route path="/register" element={<RegisterPage />} /> {/* Use RegisterPage component */}
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
