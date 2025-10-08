@@ -1,4 +1,4 @@
-import React from 'react'; // Import React to use React.Fragment
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -15,9 +15,9 @@ const Layout: React.FC<LayoutProps> = () => {
       <Header />
       <main className="flex-grow container py-8">
         <TooltipProvider>
-          <React.Fragment> {/* Wrap Outlet in a Fragment */}
+          <div> {/* Changed from React.Fragment to a div */}
             <Outlet />
-          </React.Fragment>
+          </div>
         </TooltipProvider>
       </main>
       <Footer />
