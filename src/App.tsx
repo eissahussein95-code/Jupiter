@@ -12,15 +12,14 @@ import JobsPage from "./pages/JobsPage";
 import JobDetailsPage from "./pages/JobDetailsPage";
 import FreelancersPage from "./pages/FreelancersPage";
 import FreelancerDetailsPage from "./pages/FreelancerDetailsPage";
-import DashboardPage from "./pages/DashboardPage"; // Import DashboardPage
+import DashboardPage from "./pages/DashboardPage";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
+      {/* TooltipProvider should wrap a single child, which is our main app structure */}
       <BrowserRouter>
         <Layout>
           <Routes>
@@ -32,12 +31,15 @@ const App = () => (
             <Route path="/freelancers/:id" element={<FreelancerDetailsPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
-            <Route path="/dashboard" element={<DashboardPage />} /> {/* Route for the Dashboard */}
+            <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
       </BrowserRouter>
     </TooltipProvider>
+    {/* Toasters should be rendered as siblings to the main application content */}
+    <Toaster />
+    <Sonner />
   </QueryClientProvider>
 );
 
