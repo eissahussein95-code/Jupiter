@@ -16,6 +16,9 @@ const Header = () => {
           <Button variant="ghost" asChild>
             <Link to="/freelancers">Find Freelancers</Link>
           </Button>
+          <Button variant="ghost" asChild>
+            <Link to="/dashboard">Dashboard</Link> {/* Added Dashboard link */}
+          </Button>
           <Button asChild>
             <Link to="/login">Login</Link>
           </Button>

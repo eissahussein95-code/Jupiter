@@ -10,8 +10,9 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import JobsPage from "./pages/JobsPage";
 import JobDetailsPage from "./pages/JobDetailsPage";
-import FreelancersPage from "./pages/FreelancersPage"; // Import FreelancersPage
-import FreelancerDetailsPage from "./pages/FreelancerDetailsPage"; // Import FreelancerDetailsPage
+import FreelancersPage from "./pages/FreelancersPage";
+import FreelancerDetailsPage from "./pages/FreelancerDetailsPage";
+import DashboardPage from "./pages/DashboardPage"; // Import DashboardPage
 
 const queryClient = new QueryClient();
 
@@ -27,10 +28,11 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="/jobs" element={<JobsPage />} />
             <Route path="/jobs/:id" element={<JobDetailsPage />} />
-            <Route path="/freelancers" element={<FreelancersPage />} /> {/* Route for freelancer listings */}
-            <Route path="/freelancers/:id" element={<FreelancerDetailsPage />} /> {/* Route for freelancer details */}
+            <Route path="/freelancers" element={<FreelancersPage />} />
+            <Route path="/freelancers/:id" element={<FreelancerDetailsPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} /> {/* Route for the Dashboard */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
